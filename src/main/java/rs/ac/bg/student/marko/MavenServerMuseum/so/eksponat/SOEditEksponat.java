@@ -5,8 +5,22 @@ import java.util.List;
 import rs.ac.bg.student.marko.MavenCommonMuseum.domain.Eksponat;
 import rs.ac.bg.student.marko.MavenServerMuseum.so.AbstractSO;
 
+/**
+ * Sistemska operacija koja nasledjuje apstraktnu klasu AbstractSO i sluzi za izmenu eksponata u sistemu.
+ * @author Marko Radunovic
+ * @version 0.1
+ */
 public class SOEditEksponat extends AbstractSO {
 
+	/**
+	 * Metoda za validaciju izmene eksponata. Proverava da li eksponat vec postoji u sistemu.
+	 * @param entity instanca klase Object koja predstavlja zahtev koji se salje
+	 * @throws Exception <ul>
+	 * <li>Ako je prosledjeni objekat null</li>
+	 * <li>Ako prosledjeni objekat nije instanca klase Eksponat</li>
+	 * <li>Ako prosledjeni objekat postoji u sistemu kao eksponat</li>
+	 * </ul>
+	 */
     @Override
     protected void validate(Object entity) throws Exception {
         if (!(entity instanceof Eksponat)) {
@@ -22,6 +36,15 @@ public class SOEditEksponat extends AbstractSO {
         }
     }
 
+    /**
+     * Metoda koja azurira vrednosti eksponata u sistemu
+     * @param entity instanca klase Object koja predstavlja zahtev koji se salje
+     * @throws Exception <ul>
+	 * <li>Ako je prosledjeni objekat null</li>
+	 * <li>Ako prosledjeni objekat nije instanca klase Eksponat</li>
+	 * <li>Ako se desi neka greska u komunikaciji sa bazom</li>
+	 * </ul>
+     */
     @Override
     protected void execute(Object entity) throws Exception {
         Eksponat eksponat = (Eksponat) entity;
