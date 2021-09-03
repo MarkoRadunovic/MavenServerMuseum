@@ -61,7 +61,7 @@ class SOEditIzlozbaTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		editIzlozba = new SOEditKustos();
+		editIzlozba = new SOEditIzlozba();
 	}
 
 	@AfterEach
@@ -91,7 +91,7 @@ class SOEditIzlozbaTest {
 
 		Izlozba i = ((SOSearchIzlozbe)searchIzlozbe).getList().get(0);
 		
-		i.setOcenaIzlozbe(Double.parseDouble(pretraga));
+		i.setOcenaIzlozbe(Double.parseDouble(izmena));
 		
 		editIzlozba.templateExecute(i);
 		
